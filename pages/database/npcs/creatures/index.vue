@@ -3,22 +3,28 @@
     <PageBreadcrumb />
     <PageHeader />
 
-    
-    <div>  
 
-      <UTable :columns :rows="creatures">
+    <div>
+      <UTable
+        :columns
+        :rows="creatures"
+      >
         <template #name-data="{ row }">
-          <nuxt-link :to="'/database/creatures/' + row.wcid">
-            <p class="font-bold">{{ row.name }}</p>
+          <nuxt-link :to="'/database/npcs/creatures/' + row.wcid">
+            <p class="font-bold">
+              {{ row.name }}
+            </p>
           </nuxt-link>
         </template>
       </UTable>
-    
-      <div class="bg-gray-800/50 p-4">
-        <UPagination v-model="page" :page-count="perPage" :total="totalPages" />
-      </div>
-      
 
+      <div class="bg-gray-800/50 p-4">
+        <UPagination
+          v-model="page"
+          :page-count="perPage"
+          :total="totalPages"
+        />
+      </div>
     </div>
   </div>
 </template>

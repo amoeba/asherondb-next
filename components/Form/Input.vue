@@ -3,11 +3,12 @@
     class=" rounded-none border-2 border-t-primary-400 border-r-primary-800 border-b-primary-700 border-l-primary-500 bg-acred-700"
     :class="[classes]"
   >
-
-  <!-- has-[input:focus]:ring-primary-500 rounded-lg p-1 ring-2 ring-inset-->
+    <!-- has-[input:focus]:ring-primary-500 rounded-lg p-1 ring-2 ring-inset-->
     <div class="flex space-x-2">
       <div class="flex-1">
         <UInput
+          ref="input"
+          v-model="modelValue"
           :type
           :size
           :loading
@@ -19,14 +20,18 @@
           :placeholder
           :autofocus
           :ui="mergedUI"
-          v-model="modelValue"
-          ref="input"
         >
-          <template #leading v-if="$slots?.leading">
-            <slot name="leading"></slot>
+          <template
+            v-if="$slots?.leading"
+            #leading
+          >
+            <slot name="leading" />
           </template>
-          <template #trailing v-if="$slots?.trailing">
-            <slot name="trailing"></slot>
+          <template
+            v-if="$slots?.trailing"
+            #trailing
+          >
+            <slot name="trailing" />
           </template>
         </UInput>
       </div>
